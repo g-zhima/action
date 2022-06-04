@@ -1,0 +1,28 @@
+name: Action demo
+on: push
+jobs:
+  first_job:
+    name: first job
+    runs-on: ubuntu-18.04
+    steps:
+      - name: first job steps
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: Mona
+          MIDDLE_NAME: The
+          LAST_NAME: Octocat
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
+  second_job:
+    name: second job
+    runs-on: ubuntu-18.04
+    needs: first_job
+    steps:
+      - name: second job steps
+        env:
+          MY_VAR: Hi there! My name is
+          FIRST_NAME: ZHIMA
+          MIDDLE_NAME: ZZZ
+          LAST_NAME: XIAO GUAN
+        run: |
+          echo $MY_VAR $FIRST_NAME $MIDDLE_NAME $LAST_NAME.
